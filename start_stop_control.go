@@ -58,11 +58,7 @@ func (ssc *StartStopControl) removeTrigger(state State) {
 	if ssc.triggers == nil {
 		ssc.triggers = make(map[State]chan struct{})
 	} else {
-		_, exists := ssc.triggers[state]
-
-		if exists {
-			delete(ssc.triggers, state)
-		}
+		delete(ssc.triggers, state)
 	}
 }
 
